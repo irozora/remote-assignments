@@ -1,0 +1,232 @@
+/*=== CSS Reset ===*/
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a,
+h1,
+h2,
+h3,
+p,
+button {
+  color: white;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=== Website Name & Navigation Bar ===*/
+header {
+  background-color: #327b8a;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.website-name {
+  font-size: 1.25rem;
+}
+
+.main-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  font-size: 1em;
+}
+
+.website-name a,
+.main-nav a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+
+/*=== Welcome Section ===*/
+.primary-content {
+  background-color: #7bacb0;
+  height: 250px;
+  background-image: url(nick-fewings-BoaFo_ndn2U-unsplash.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin-top: 195px;
+}
+
+.primary-content h2,
+.primary-content p {
+  text-align: center;
+}
+
+.primary-content h2 {
+  padding-top: 100px;
+  padding-bottom: 20px;
+  font-size: 1.25rem;
+}
+
+.primary-content p {
+  font-size: 0.8em;
+}
+
+/*=== Content Section ===*/
+.content-container {
+  background-color: #86b4c2;
+  text-align: center;
+}
+
+.content-container h3 {
+  padding: 25px 0 25px;
+  font-size: 1rem;
+}
+
+.content-box {
+  border: solid 1px black;
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4 {
+  height: 150px;
+  background-image: url('https://source.unsplash.com/user/erondu/1600x900');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content-box p {
+  padding-top: 80px;
+  font-size: 0.8em;
+}
+
+/*=== Button Section ===*/
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 16px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+a:hover,
+.btn:hover {
+  background-color: #024f59;
+}
+
+/*=== Media Queries ===*/
+/* screen width >= 500px */
+@media (min-width: 500px) {
+  .header-container,
+  .main-nav,
+  .content-section {
+    display: flex;
+  }
+
+  .content-section,
+  .header-container {
+    justify-content: space-around;
+  }
+
+  .main-nav {
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .primary-content {
+    height: 300px;
+    margin-top: 40px;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4 {
+    height: 250px;
+  }
+}
+
+/* screen width >= 800px */
+@media (min-width: 800px) {
+  .header-container {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .primary-content {
+    height: 450px;
+  }
+
+  .primary-content p,
+  .content-box p {
+    font-size: 1em;
+  }
+
+  .primary-content h2 {
+    padding-top: 150px;
+    font-size: 1.5rem;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4 {
+    height: 300px;
+  }
+
+  .content-box p {
+    padding-top: 100px;
+  }
+}
+
+/* screen width >= 1200px */
+@media (min-width: 1200px) {
+  .primary-content {
+    background-color: #7bacb0;
+    height: 600px;
+  }
+
+  .primary-content h2 {
+    padding-top: 250px;
+    font-size: 2rem;
+  }
+
+  .content-container h3 {
+    font-size: 2rem;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4 {
+    width: 600px;
+    height: 400px;
+    margin: 20px auto;
+  }
+}
