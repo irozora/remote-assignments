@@ -17,7 +17,8 @@ function binarySearchPosition(numbers, target) {
   let highIndex = numbers.length - 1
   let middleIndex
 
-  while (lowIndex < highIndex) {
+  // Fix the while statement from lowIndex < highIndex to lowIndex <= highIndex. To prevent the while statement stops from the condition that all 3 variables(lowIndex, highIndex and middleIndex) are the same.
+  while (lowIndex <= highIndex) {
     middleIndex = parseInt((lowIndex + highIndex) / 2)
 
     // If numbers[middleIndex] is equal to the target, then return middleIndex(since we require the position only).
