@@ -1,0 +1,11 @@
+extends layout.pug
+
+block content
+  //- if the user has entered a name, render it on the page. Else, show the form to ask for the user's name
+  if name
+    h2 Hi, #{name}!
+  else
+    form(action="/trackName", method="GET")
+      label Please enter your name:
+        input(type="text", name="name")
+      button(type="submit") Submit

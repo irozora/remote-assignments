@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum Up!</title>
+  </head>
+  <body>
+    <h1 id="result">Nothing over here...for now</h1>
+    <h3>Please enter a number, the sum of the numbers will show above!</h3>
+    <form>
+      <input type="number" id="numberInput" />
+      <button type="submit" id="numberBtn">Submit!</button>
+    </form>
+
+    <script>
+      // Assignment 3: Connect to Backend API by AJAX
+
+      // select and assign the submit button to the numberBtn variable.
+      const numberBtn = document.getElementById('numberBtn')
+
+      // Add an event listener to the button. The HTTP request will only be sent if the button is clicked.
+      numberBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        // select and assign the input number to the sumInput variable
+        const sumInput = document.getElementById('numberInput').value
+
+        // Create an XMLHTTP Request Object, assign it to the variable sumRequest.
+        const sumRequest = new XMLHttpRequest()
+        // Callback
+        sumRequest.onreadystatechange = function () {
+          if (sumRequest.readyState === 4) {
+            if (sumRequest.status === 200) {
+              // parse the sumRequest.responseText into a DOM document.
+              let parser = new DOMParser()
+              let parsedDoc = parser.parseFromString(sumRequest.responseText, 'text/html')
+              // Select and assign the result to the variable sumResult.
+              let sumResult = parsedDoc.querySelector('h1').innerText
+              document.getElementById('result').innerHTML = sumResult
+            } else {
+              alert('Something is wrong!')
+            }
+          }
+        }
+
+        // Open a Request
+        sumRequest.open('GET', `../getData?number=${sumInput}`)
+        // Send the Request
+        sumRequest.send()
+      })
+    </script>
+  </body>
+</html>
