@@ -19,16 +19,17 @@ app.get('/', (req, res) => {
 app.get('/getData', (req, res) => {
   // assign the value of req.query.number to the variable number.
   const { number } = req.query
-  // create an object named data, and assign the number variable as its property.
-  const data = { number }
 
-  // if a value has been assigned to data.number(if the user has entered the query string.)
-  if (data.number) {
-    // using parseInt method to convert data.number and assign to data.convert
-    data.convert = parseInt(data.number)
+  // create an empty object named data
+  const data = {}
 
-    // if isNaN(data.convert) is true, send another message, otherwise do the math
-    if (isNaN(data.convert)) {
+  // the number variable will only have a string value if the user has typed something
+  if (number) {
+    // use parseInt method to convert data.number and assign to data.convert
+    data.convert = parseInt(number)
+
+    // if isNaN(data.convert) is true OR if data.convert equals to 0, send another message, otherwise do the math
+    if (isNaN(data.convert) || data.convert <= 0) {
       data.message = 'Wrong Parameter'
     } else {
       data.message = ((data.convert + 1) * data.convert) / 2
