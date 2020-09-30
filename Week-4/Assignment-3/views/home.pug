@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+  h1 This will be a home page for users to log in.
+
+  if message
+    h2= message
+
+  form(action="/signup", method="POST")
+    h3 Sign up if you are new here!
+    label Tell me your email:
+      input(type="email", name="email")
+    label And your password please:
+      input(type="password", name="password")
+    button(type="submit") Sign Up
+
+  form(action="/signin", method="POST")
+    h3 Sign in if you are a user already:
+    label Tell me your email:
+      input(type="email", name="email")
+    label And your password please:
+      input(type="password", name="password")
+    button(type="submit") Sign In
