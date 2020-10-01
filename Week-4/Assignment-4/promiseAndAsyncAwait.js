@@ -29,7 +29,7 @@ delayedResultPromise(4, '5', 3000).then(console.log) // Uncaught (in promise) Ei
 delayedResultPromise(8, 100, 6000).then(console.log) // 108 (100+8) will be shown in the console after 6 seconds
 delayedResultPromise(4, '5', 3000)
   .then(console.log)
-  .catch((error) => console.log(error)) // Since we're using catch block for the rejected promise, the message "Either n1 or n2 is not a number." will be logged into the console.
+  .catch((error) => console.error(error)) // Since we're using catch block for the rejected promise, the message "Either n1 or n2 is not a number." will be logged into the console.
 
 /*
  * main: a function below to show a delayed result in console, using async/await.
@@ -41,9 +41,13 @@ async function main() {
   To make async/await works, add the await keyword inside the async function. Assign the result to a variable named delayResult.
   may change the arguments of delayedResultPromise to the desired numbers.
   */
-  const delayResult = await delayedResultPromise(4, 5, 3000)
-  // Either the returned promise is resolved or rejected, print out the delayResult.
-  console.log(delayResult)
+  try {
+    const delayResult = await delayedResultPromise(4, 5, 3000)
+    // Either the returned promise is resolved or rejected, print out the delayResult.
+    console.log(delayResult)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 main() // result will be shown in the console after <delayTime> second
